@@ -1,0 +1,42 @@
+.header {
+    background-color: #444;
+    color: white;
+    height: 50px;
+}
+.header .title {
+    font-size: 30px;
+    margin: 8px 0 0 10px;
+    display: inline-block;
+}
+
+.header-menu {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.header-menu a {
+    display: inline-block;
+    margin-left: 10px;
+    color: white;
+}
+
+.content {
+    padding: 20px;
+}
+
+.movie-tile {
+    width: 150px;
+    /*height: 200px;*/
+    margin: 10px;
+    float: left;
+}
+
+.movie-tile img {
+    width: 100%;
+    height: 200px;
+}
+
+.movie-tile h4 {
+    height: 36px;
+    overflow: hidden;
+}
