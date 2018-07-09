@@ -37,6 +37,7 @@
 }
 
 .movie-tile h4 {
+    font-size: 14px;
     height: 36px;
     overflow: hidden;
 }
