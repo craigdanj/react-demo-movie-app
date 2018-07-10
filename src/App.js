@@ -1506,7 +1506,7 @@ class App extends Component {
 	                	return (
 	                			<div>
 	                				<FilterBar />
-	                				<Movies addFavourite={this.addFavourite} showFavourites={this.state.showFavourites} list={this.state.moviesList}/>
+	                				<Movies showFilteredList={this.state.showFavourites} addFavourite={this.addFavourite} showFavourites={this.state.showFavourites} list={this.state.moviesList}/>
 	                			</div>
 	                		)
 	                }}/>
