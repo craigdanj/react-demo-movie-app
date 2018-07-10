@@ -4,7 +4,7 @@ import MovieTile from './MovieTile'
 const Movies = (props) => {
 	let movieTileList = [];
 
-	if(props.showFilteredList) {
+	if(props.showFavouriteList) {
 		movieTileList = props.list.map((val, index) => {
 			if(val.favourite) {
 				return <MovieTile key={val.imdbID} index={index} movie={val} addFavourite={props.addFavourite}/>}	

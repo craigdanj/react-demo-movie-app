@@ -16,6 +16,8 @@ class FilterBar extends Component {
         this.setState({
             movies: value
         });
+
+        this.props.setFilter(!value);
     }
 
     render() {

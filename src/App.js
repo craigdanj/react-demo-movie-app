@@ -1468,6 +1468,7 @@ class App extends Component {
 		}
 
 		this.addFavourite = this.addFavourite.bind(this);
+		this.setFilter = this.setFilter.bind(this);
 	}
 
 
@@ -1497,6 +1498,12 @@ class App extends Component {
 		})
 	}
 
+	setFilter(value) {
+		this.setState({
+			showFavourites: value
+		})
+	}
+
     render() {
         return (
             <BrowserRouter>
@@ -1505,8 +1512,8 @@ class App extends Component {
 	                <Route path="/" exact render={() => {
 	                	return (
 	                			<div>
-	                				<FilterBar />
-	                				<Movies showFilteredList={this.state.showFavourites} addFavourite={this.addFavourite} showFavourites={this.state.showFavourites} list={this.state.moviesList}/>
+	                				<FilterBar setFilter={this.setFilter}/>
+	                				<Movies showFavouriteList={this.state.showFavourites} addFavourite={this.addFavourite} showFavourites={this.state.showFavourites} list={this.state.moviesList}/>
 	                			</div>
 	                		)
 	                }}/>
