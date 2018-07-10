@@ -1,23 +1,16 @@
 import React, { Component } from 'react';
 
-class MovieTile extends Component {
+const MovieTile = (props) => {
 
-	constructor(props) {
-		super(props);
-
-	}
-
-    render() {
         return (
             <div className="movie-tile">
-            	<img src={this.props.movie.Poster}/>
+            	<img src={props.movie.Poster}/>
 
-                <h4>{this.props.movie.Title}</h4>
+                <h4>{props.movie.Title}</h4>
 
-            	<button onClick={()=>this.props.addFavourite(this.props.index)}> {this.props.movie.favourite ? "Remove from ": "Add to "}favourite</button>
+            	<button onClick={()=>props.addFavourite(props.index)}> {props.movie.favourite ? "Remove from ": "Add to "}favourite</button>
             </div>
         );
-    }
 }
 
 export default MovieTile;
