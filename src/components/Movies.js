@@ -14,12 +14,18 @@ const Movies = (props) => {
 	} else {
 		movieTileList = props.list.map((val, index) => <MovieTile key={val.imdbID} index={index} movie={val} addFavourite={props.addFavourite}/>);
 	}
-    
-    return (
-        <div className="movies content">
-            {movieTileList}
-        </div>
-    );
+
+
+	// if(movieTileList.length) {
+		return (
+	        <div className="movies content">
+	            {movieTileList}
+	        </div>
+	    )
+	// } else {
+	// 	return (<p>No items in your list</p>);
+	// }
+
 }
 
 export default Movies;
