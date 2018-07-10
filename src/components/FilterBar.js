@@ -6,26 +6,36 @@ class FilterBar extends Component {
 		super(props);
 
 		this.state = {
-			
+			movies: true
 		}
+
+        this.selectFilter = this.selectFilter.bind(this);
 	}
+
+    selectFilter(value) {
+        console.log(value)
+        this.setState({
+            movies: value
+        });
+    }
 
     render() {
         return (
-            <div className="filters">
+            <form className="filters">
                 <label>
-                    <input type="radio" name="filter" value="true" checked="true"/>
+                    <input type="radio" value="true" checked={this.state.movies} onChange={() => this.selectFilter(true)}/>
                     Movies 
                 </label>
 
                 &nbsp;
 
                 <label>
-            	   <input type="radio" name="filter" value="false"/> Favourites
+            	   <input type="radio" value="false" checked={!this.state.movies} onChange={() => this.selectFilter(false)}/> Favourites
                 </label>
-            </div>
+            </form>
         );
     }
+
 }
 
 export default FilterBar;
