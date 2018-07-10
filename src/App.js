@@ -4,6 +4,7 @@ import Header from './components/Header';
 import {BrowserRouter, Route} from 'react-router-dom';
 import Movies from './components/Movies';
 import Events from './components/Events';
+import FilterBar from './components/FilterBar';
 import axios from 'axios';
 
 class App extends Component {
@@ -1489,7 +1490,12 @@ class App extends Component {
             	<div>
 	                <Header/>
 	                <Route path="/" exact render={() => {
-	                	return <Movies list={this.state.moviesList}/>
+	                	return (
+	                			<div>
+	                				<FilterBar />
+	                				<Movies list={this.state.moviesList}/>
+	                			</div>
+	                		)
 	                }}/>
 	                <Route path="/events" exact component={Events}/>
                 </div>
