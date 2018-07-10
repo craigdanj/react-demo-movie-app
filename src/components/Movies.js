@@ -14,8 +14,6 @@ const Movies = (props) => {
 			}
 		});
 
-
-
 	} else {
 		movieTileList = props.list.map((val, index) => {
 			movieCount += 1;
@@ -23,17 +21,12 @@ const Movies = (props) => {
 		});
 	}
 
-
-	// if(movieTileList.length) {
-		return (
-	        <div className="movies content">
-	            {movieCount ? movieTileList: <p>No items in your list</p>
-	            }
-	        </div>
-	    )
-	// } else {
-	// 	return (<p>No items in your list</p>);
-	// }
+	return (
+        <div className="movies content">
+            {movieCount ? movieTileList: <p>No items in your list</p>
+            }
+        </div>
+    )
 
 }
 
