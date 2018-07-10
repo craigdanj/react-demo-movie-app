@@ -1491,7 +1491,7 @@ class App extends Component {
 	addFavourite(index) {
 		const newList = [...this.state.moviesList];
 
-		newList[index].favourite = true;
+		newList[index].favourite = !newList[index].favourite;
 
 		this.setState({
 			moviesList: newList

@@ -13,9 +13,11 @@ class MovieTile extends Component {
     render() {
         return (
             <div className="movie-tile">
-            	<img src=""/>	
-            	<h4>{this.props.movie.Title}</h4>
-            	<button onClick={()=>this.props.addFavourite(this.props.index)}> {this.props.movie.favourite ? "Added": "Add"} to favourite</button>
+            	<img src=""/>
+
+                <h4>{this.props.movie.Title}</h4>
+
+            	<button onClick={()=>this.props.addFavourite(this.props.index)}> {this.props.movie.favourite ? "Remove from ": "Add to "}favourite</button>
             </div>
         );
     }
