@@ -6,7 +6,7 @@ class MovieTile extends Component {
 		super(props);
 
 		this.state = {
-			
+            
 		}
 	}
 
@@ -15,7 +15,7 @@ class MovieTile extends Component {
             <div className="movie-tile">
             	<img src=""/>	
             	<h4>{this.props.movie.Title}</h4>
-            	<button>Add to favourite</button>
+            	<button onClick={()=>this.props.addFavourite(this.props.index)}> {this.props.movie.favourite ? "Added": "Add"} to favourite</button>
             </div>
         );
     }

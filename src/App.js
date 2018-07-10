@@ -13,8 +13,10 @@ class App extends Component {
 		super(props);
 
 		this.state = {
+			showFavourites: false,
 			moviesList: [
 			   {
+			   	  "favourite": true,
 			      "Actors":"Daniel Radcliffe, Rupert Grint, Emma Watson, Richard Griffiths",
 			      "Awards":"Nominated for 3 BAFTA Film Awards. Another 11 wins & 42 nominations.",
 			      "BoxOffice":"$261,835,892",
@@ -1464,25 +1466,36 @@ class App extends Component {
 			   }
 			]
 		}
+
+		this.addFavourite = this.addFavourite.bind(this);
 	}
 
 
 	componentDidMount() {
 
-		axios.get('https://firebasestorage.googleapis.com/v0/b/kiran-react.appspot.com/o/movies.json?alt=media&token=f5969936-4e5a-4c11-b1a7-78d111beff64')
-			.then(function (response) {
-				// handle success
-				console.log(response);
-			})
-			.catch(function (error) {
-				// handle error
-				console.log(error);
-			})
-			.then(function () {
-				// always executed
-			});
+		// axios.get('https://firebasestorage.googleapis.com/v0/b/kiran-react.appspot.com/o/movies.json?alt=media&token=f5969936-4e5a-4c11-b1a7-78d111beff64')
+		// 	.then(function (response) {
+		// 		// handle success
+		// 		console.log(response);
+		// 	})
+		// 	.catch(function (error) {
+		// 		// handle error
+		// 		console.log(error);
+		// 	})
+		// 	.then(function () {
+		// 		// always executed
+		// 	});
 	}
 
+	addFavourite(index) {
+		const newList = [...this.state.moviesList];
+
+		newList[index].favourite = true;
+
+		this.setState({
+			moviesList: newList
+		})
+	}
 
     render() {
         return (
@@ -1493,7 +1506,7 @@ class App extends Component {
 	                	return (
 	                			<div>
 	                				<FilterBar />
-	                				<Movies list={this.state.moviesList}/>
+	                				<Movies addFavourite={this.addFavourite} showFavourites={this.state.showFavourites} list={this.state.moviesList}/>
 	                			</div>
 	                		)
 	                }}/>

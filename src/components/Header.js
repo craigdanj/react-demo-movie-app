@@ -7,7 +7,6 @@ const Header = () => {
         	<span className="title">Movies App</span>
 
         	<span className="header-menu">
-        	/ 
         		<Link to="/">Movies</Link>
         		<Link to="/events">Events</Link>
         	</span>

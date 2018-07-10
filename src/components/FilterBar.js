@@ -13,7 +13,6 @@ class FilterBar extends Component {
 	}
 
     selectFilter(value) {
-        console.log(value)
         this.setState({
             movies: value
         });
