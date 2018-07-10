@@ -13,7 +13,7 @@ class MovieTile extends Component {
     render() {
         return (
             <div className="movie-tile">
-            	<img src={this.props.movie.Poster}/>	
+            	<img src=""/>	
             	<h4>{this.props.movie.Title}</h4>
             	<button>Add to favourite</button>
             </div>
