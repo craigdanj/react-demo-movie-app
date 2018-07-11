@@ -1,0 +1,3 @@
+export default {
+	MOVIES_FETCH_SUCCESS: "MOVIES_FETCH_SUCCESS"
+}

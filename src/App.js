@@ -6,6 +6,12 @@ import Movies from './components/Movies';
 import Events from './components/Events';
 import FilterBar from './components/FilterBar';
 import axios from 'axios';
+import {connect} from 'react-redux';
+import thunk from 'redux-thunk';
+
+import { bindActionCreators } from 'redux';
+import * as moviesActions from './actions/MoviesActionCreator';
+
 
 class App extends Component {
 
@@ -21,23 +27,25 @@ class App extends Component {
 		this.setFilter = this.setFilter.bind(this);
 	}
 
-
 	componentDidMount() {
 
-		axios.get('http://www.mocky.io/v2/5b44a1b92f00006400583823')
-			.then(response => {
-				// handle success
-				console.log(response);
+		this.props.moviesActions.fetchMovies();
 
-				this.setMovieList(response.data);
-			})
-			.catch(error => {
-				// handle error
-				console.log(error);
-			})
-			.then(() => {
-				// always executed
-			});
+	// 	axios.get('http://www.mocky.io/v2/5b44a1b92f00006400583823')
+	// 		.then(response => {
+	// 			// handle success
+	// 			console.log(response);
+
+	// 			this.setMovieList(response.data);
+	// 		})
+	// 		.catch(error => {
+	// 			// handle error
+	// 			console.log(error);
+	// 		})
+	// 		.then(() => {
+	// 			// always executed
+	// 		});
+
 	}
 
 	setMovieList(value) {
@@ -72,7 +80,7 @@ class App extends Component {
 	                	return (
 	                			<div>
 	                				<FilterBar setFilter={this.setFilter}/>
-	                				<Movies showFavouriteList={this.state.showFavourites} addFavourite={this.addFavourite} showFavourites={this.state.showFavourites} list={this.state.moviesList}/>
+	                				<Movies showFavouriteList={this.state.showFavourites} addFavourite={this.addFavourite} showFavourites={this.state.showFavourites} list={this.props.moviesList}/>
 	                			</div>
 	                		)
 	                }}/>
@@ -83,4 +91,16 @@ class App extends Component {
     }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+	return {
+		moviesList: state.moviesReducer.moviesList || []
+	}
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		moviesActions: bindActionCreators(moviesActions, dispatch)
+	}
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
