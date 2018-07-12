@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 const Header = () => {
     return (
         <div className="header">
-        	<span className="title">Movies App</span>
+        	<span className="title">The Movie App</span>
 
         	<span className="header-menu">
         		<Link to="/">Movies</Link>
