@@ -16,29 +16,73 @@ class MovieDetails extends Component {
 
     render() {
 
+        let ratings = [];
+
+        if(this.props.movie.Ratings) {
+            ratings = this.props.movie.Ratings.map((val, key) => {
+                return <li>{val.Source}: {val.Value}</li>
+            })
+        }
+
         return (
             <div className="movie-details">
-                <h2>{this.props.match.params.id}</h2>
 
-                <img className="poster" src={this.props.movie.Poster}/>
+                <div>
+                    <div className="sidebar">
+                        <img className="poster" src={this.props.movie.Poster}/>
+
+                        <div className="rating-container">
+
+                            <h4>Ratings</h4>
+
+                            <ul className="ratings">
+                                {ratings}
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div className="info">
+                        <h1>{this.props.movie.Title}</h1>
+                        
+                        <h4>{this.props.movie.Year}</h4>
+
+                        <h5>
+                            {this.props.movie.Writer}
+                        </h5>
+
+                        <div className="meta">
+                            <p>
+                                Rating: {this.props.movie.Rated}
+                            </p>
+
+                            <p>
+                                Duration: {this.props.movie.Runtime}
+                            </p>
+
+                            <p>
+                                Genre: {this.props.movie.Genre}
+                            </p>
+
+                            <p>
+                                Languages: {this.props.movie.Language} 
+                            </p>
+
+                            <p>
+                                Cast: {this.props.movie.Actors} 
+                            </p>
+                        </div>
+
+
+                        <p>
+                            {this.props.movie.Plot} 
+                        </p>
+
+                    </div>
+                </div>
+
+
                 
-                <h1>{this.props.movie.Title}</h1>
-
-                <p className="language">
-                    {this.props.movie.Language} 
-                </p>
-
-                <p className="meta-info">
-                    <span>
-                        {this.props.movie.Rated} 
-                    </span>
-
-                    &nbsp; - &nbsp;
-                    
-                    <span>                    
-                        {this.props.movie.Runtime}
-                    </span>
-                </p>
             </div>
         );
     }
