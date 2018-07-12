@@ -10,14 +10,14 @@ const Movies = (props) => {
 		movieTileList = props.list.map((val, index) => {
 			if(val.favourite) {
 				movieCount += 1;
-				return <MovieTile key={val.imdbID} index={index} movie={val} addFavourite={props.addFavourite}/>
+				return <MovieTile key={val.imdbID} index={index} movie={val}/>
 			}
 		});
 
 	} else {
 		movieTileList = props.list.map((val, index) => {
 			movieCount += 1;
-			return <MovieTile key={val.imdbID} index={index} movie={val} addFavourite={props.addFavourite}/>
+			return <MovieTile key={val.imdbID} index={index} movie={val}/>
 		});
 	}
 

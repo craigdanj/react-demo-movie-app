@@ -17,4 +17,9 @@ export const fetchMovies = () => {
 			)
 		)
 	}
-} 
+}
+
+export const addFavourite = (movies) => ({
+	type: MoviesActionConstants.ADD_FAVOURITE,
+	payload: movies
+})

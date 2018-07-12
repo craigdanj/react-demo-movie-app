@@ -23,7 +23,7 @@ class App extends Component {
 			moviesList: []
 		}
 
-		this.addFavourite = this.addFavourite.bind(this);
+		// this.addFavourite = this.addFavourite.bind(this);
 		this.setFilter = this.setFilter.bind(this);
 	}
 
@@ -48,22 +48,22 @@ class App extends Component {
 
 	}
 
-	setMovieList(value) {
+	// setMovieList(value) {
 
-		this.setState({
-			moviesList: value
-		})
-	}
+	// 	this.setState({
+	// 		moviesList: value
+	// 	})
+	// }
 
-	addFavourite(index) {
-		const newList = [...this.state.moviesList];
+	// addFavourite(index) {
+	// 	const newList = [...this.state.moviesList];
 
-		newList[index].favourite = !newList[index].favourite;
+	// 	newList[index].favourite = !newList[index].favourite;
 
-		this.setState({
-			moviesList: newList
-		})
-	}
+	// 	this.setState({
+	// 		moviesList: newList
+	// 	})
+	// }
 
 	setFilter(value) {
 		this.setState({
@@ -80,7 +80,7 @@ class App extends Component {
 	                	return (
 	                			<div>
 	                				<FilterBar setFilter={this.setFilter}/>
-	                				<Movies showFavouriteList={this.state.showFavourites} addFavourite={this.addFavourite} showFavourites={this.state.showFavourites} list={this.props.moviesList}/>
+	                				<Movies showFavouriteList={this.state.showFavourites} showFavourites={this.state.showFavourites} list={this.props.moviesList}/>
 	                			</div>
 	                		)
 	                }}/>
