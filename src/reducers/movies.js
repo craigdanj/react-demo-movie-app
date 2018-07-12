@@ -11,7 +11,9 @@ const movies = (state = initialState, action) => {
 	switch(action.type) {
 
 		case MoviesActionConstants.MOVIES_FETCH_SUCCESS:
-			return {...state, moviesList: action.payload.slice(10,action.payload.length)}
+			return {...state, moviesList: action.payload}
+			// return {...state, moviesList: action.payload.slice(11,action.payload.length)}
+			
 
 		case MoviesActionConstants.ADD_FAVOURITE:
 
