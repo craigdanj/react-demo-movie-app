@@ -41,6 +41,12 @@ class FilterBar extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    console.log(state);
+    return {
+        showMovies: !state.moviesReducer.showFavourites
+    }
+}
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -49,4 +55,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(null, mapDispatchToProps)(FilterBar);
+export default connect(mapStateToProps, mapDispatchToProps)(FilterBar);
