@@ -12,7 +12,8 @@ class MovieDetails extends Component {
     }
 
     componentWillMount() {
-        this.props.moviesActions.fetchMovie(this.props.match.params.id)
+        this.props.moviesActions.triggerLoading();
+        this.props.moviesActions.fetchMovie(this.props.match.params.id);
     }
 
     render() {
@@ -20,15 +21,15 @@ class MovieDetails extends Component {
         let ratings = [];
 
         if(this.props.movie.Ratings) {
-            ratings = this.props.movie.Ratings.map((val, key) => {
-                return <li>{val.Source}: {val.Value}</li>
+            ratings = this.props.movie.Ratings.map((val, index) => {
+                return <li key={index}>{val.Source}: {val.Value}</li>
             })
         }
 
         return (
             <div className="movie-details">
                 {this.props.loading ?
-                    <p>Loading</p>
+                    <p>Loading...</p>
 
                     :
 
@@ -86,8 +87,6 @@ class MovieDetails extends Component {
                         </div>
                     </div>
 
-                    
-
                 }
                 
             </div>
@@ -96,7 +95,9 @@ class MovieDetails extends Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
+        loading: state.moviesReducer.loading || false,
         movie: state.moviesReducer.movieDetails || {}
     }
 }

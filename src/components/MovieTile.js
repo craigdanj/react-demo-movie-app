@@ -20,7 +20,7 @@ const MovieTile = (props) => {
                 </Link>
             </h4>
 
-            <img className="fav-button" onClick={()=>props.moviesActions.addFavourite(props.index)} src={iconSource}/>
+            <img className="fav-button" onClick={() => props.moviesActions.addFavourite(props.index)} src={iconSource}/>
 
             <p className="language">
                 {props.movie.Language} 
