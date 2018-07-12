@@ -7,9 +7,9 @@ class FilterBar extends Component {
 
 	constructor(props) {
 		super(props);
-
+        console.log(this);
 		this.state = {
-			showMovies: !props.showMovies
+			showMovies: this.props.showMovies
 		}
 
         this.selectFilter = this.selectFilter.bind(this);

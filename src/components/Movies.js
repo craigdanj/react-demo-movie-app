@@ -32,7 +32,6 @@ const Movies = (props) => {
 }
 
 const mapStateToProps = (state) => {
-	console.log(state)
 	return {
 		showFavourites: state.moviesReducer.showFavourites
 	}
