@@ -5,14 +5,15 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
-import rootReducer from './reducers/index';
+import movies from './reducers/movies';
 import thunk from 'redux-thunk';
 
+const rootReducer = combineReducers({
+				moviesReducer: movies
+			});
 
 const store = createStore(
-		combineReducers({
-			moviesReducer: rootReducer
-		}),
+		rootReducer,
 		applyMiddleware(thunk)
 	);
 

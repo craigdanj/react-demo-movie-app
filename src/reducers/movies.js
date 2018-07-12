@@ -5,7 +5,7 @@ const initialState = {
 	moviesList: []
 };
 
-const rootReducer = (state = initialState, action) => {
+const movies = (state = initialState, action) => {
 
 	switch(action.type) {
 
@@ -25,21 +25,17 @@ const rootReducer = (state = initialState, action) => {
 			}
 
 			newList[action.payload] = targetMovie;
-
 			let returnedState = {...state, moviesList: newList};
-
-			console.log(returnedState);
 
 			return returnedState;
 
 		case MoviesActionConstants.SET_FILTER:
-
 			return state;
 
 		default:
 			return state; 
 	}
-}
+};
 
 
-export default rootReducer;
+export default movies;
