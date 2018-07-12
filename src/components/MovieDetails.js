@@ -8,7 +8,6 @@ import starOutline from '../assets/star-outline.svg';
 class MovieDetails extends Component {
     constructor(props) {
         super(props);
-
     }
 
     componentWillMount() {
@@ -16,7 +15,6 @@ class MovieDetails extends Component {
     }
 
     render() {
-        // const iconSource = this.props.movie.favourite ? star: starOutline;
 
         return (
             <div className="movie-details">

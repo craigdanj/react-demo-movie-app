@@ -41,7 +41,6 @@ export const fetchMovieSuccess = (data, id) => ({
 })
 
 export const fetchMovie = (id) => {
-	console.log(id)
 	//return a callback
 	return function(dispatch, getState) {
 		return (
