@@ -52,9 +52,13 @@
     overflow: hidden;
     margin: 5px 0;
     clear: both;
-    color: #444;
     cursor: pointer;
     line-height: 1.3em;
+}
+
+.movie-tile h4 a {
+    color: #444;
+    text-decoration: none;
 }
 
 .movie-tile .language{

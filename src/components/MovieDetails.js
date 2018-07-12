@@ -5,37 +5,52 @@ import * as moviesActions from '../actions/MoviesActionCreator';
 import star from '../assets/star.svg';
 import starOutline from '../assets/star-outline.svg';
 
-const MovieDetails = (props) => {
+class MovieDetails extends Component {
+    constructor(props) {
+        super(props);
 
-    const iconSource = props.movie.favourite ? star: starOutline;
+    }
 
-    return (
-        <div className="movie-tile">
-            
-            <h4>{props.movie.Title}</h4>
+    componentWillMount() {
+        this.props.moviesActions.fetchMovie()
+    }
 
-            <img className="fav-button" onClick={()=>props.moviesActions.addFavourite(props.index)} src={iconSource}/>
+    render() {
+        // const iconSource = this.props.movie.favourite ? star: starOutline;
 
-            <p className="language">
-                {props.movie.Language} 
-            </p>
-            <p className="meta-info">
-                <span>
+        return (
+            <div className="movie-details">
+                <h2>{this.props.match.params.id}</h2>
+
+                <img className="poster" src={this.props.movie.Poster}/>
+                
+                <h1>{this.props.movie.Title}</h1>
+
+                <p className="language">
+                    {this.props.movie.Language} 
+                </p>
+
+                <p className="meta-info">
+                    <span>
+                        {this.props.movie.Rated} 
+                    </span>
+
+                    &nbsp; - &nbsp;
                     
-                    {props.movie.Rated} 
-
-                    &nbsp;&nbsp;|
-                    &nbsp;&nbsp;
-                </span>
-                <span>                    
-                    {props.movie.Runtime}
-                </span>
-            </p>
-
-        </div>
-    );
-            // <img className="poster" src={props.movie.Poster}/>
+                    <span>                    
+                        {this.props.movie.Runtime}
+                    </span>
+                </p>
+            </div>
+        );
+    }
     
+}
+
+const mapStateToProps = (state) => {
+    return {
+        movie: state.moviesReducer.movieDetails || {}
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -45,4 +60,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 
-export default connect(null, mapDispatchToProps)(MovieDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(MovieDetails);

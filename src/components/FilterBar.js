@@ -9,7 +9,7 @@ class FilterBar extends Component {
 		super(props);
 
 		this.state = {
-			showMovies: true
+			showMovies: !props.showMovies
 		}
 
         this.selectFilter = this.selectFilter.bind(this);

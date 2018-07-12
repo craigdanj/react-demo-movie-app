@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import {BrowserRouter, Route} from 'react-router-dom';
 import Movies from './components/Movies';
+import MovieDetails from './components/MovieDetails';
 import Events from './components/Events';
 import FilterBar from './components/FilterBar';
 import axios from 'axios';
@@ -38,6 +39,7 @@ class App extends Component {
 	                			</div>
 	                		)
 	                }}/>
+	                <Route path="/details/:id" exact component={MovieDetails}/>
 	                <Route path="/events" exact component={Events}/>
                 </div>
             </BrowserRouter>

@@ -2,7 +2,8 @@ import MoviesActionConstants from '../constants/MoviesActionConstants';
 
 const initialState = {
 	showFavourites: false,
-	moviesList: []
+	moviesList: [],
+	movieDetails: {}
 };
 
 const movies = (state = initialState, action) => {
@@ -33,6 +34,12 @@ const movies = (state = initialState, action) => {
 			const newState = {...state};
 			newState.showFavourites = action.payload;
 			return newState;
+
+		case MoviesActionConstants.MOVIE_FETCHED:
+			const copiedState = {...state};
+			copiedState.movieDetails = {...action.payload[20]};
+
+			return copiedState;
 
 		default:
 			return state; 

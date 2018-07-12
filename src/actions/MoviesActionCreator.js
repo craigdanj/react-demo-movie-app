@@ -1,6 +1,7 @@
 import * as MoviesApi from '../apis/MoviesApi';
 import MoviesActionConstants from '../constants/MoviesActionConstants';
 
+//Fetch All Movies
 export const fetchMoviesSuccess = (movies) => ({
 	type: MoviesActionConstants.MOVIES_FETCH_SUCCESS,
 	payload: movies
@@ -19,12 +20,36 @@ export const fetchMovies = () => {
 	}
 }
 
+
+//Add favourite
 export const addFavourite = (index) => ({
 	type: MoviesActionConstants.ADD_FAVOURITE,
 	payload: index
 })
 
+//Set filter
 export const setFilter = (value) => ({
 	type: MoviesActionConstants.SET_FILTER,
 	payload: value
 })
+
+
+//Fetch Single Movie
+export const fetchMovieSuccess = (value) => ({
+	type: MoviesActionConstants.MOVIE_FETCHED,
+	payload: value
+})
+
+export const fetchMovie = (value) => {
+	//return a callback
+	return function(dispatch, getState) {
+		return (
+			MoviesApi.fetchMovies()
+			.then( 
+				(response) => {
+					dispatch(fetchMovieSuccess(response.data))
+				}
+			)
+		)
+	}
+}
