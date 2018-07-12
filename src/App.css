@@ -27,9 +27,18 @@
 
 .movie-tile {
     width: 250px;
-    /*height: 200px;*/
-    margin: 10px;
+    margin: 10px 10px 20px;
     float: left;
+    position: relative;
+}
+
+.movie-tile .overlay {
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8));
+    width: 250px;
+    height: 330px;
+    position: absolute;
+    top: 0px;
+    z-index: 1;
 }
 
 .movie-tile img.poster {
@@ -42,11 +51,13 @@
     height: 30px;
     display: inline-block;
     margin-top: 5px;
+    position: absolute;
+    left: 15px;
+    top: 280px;
+    z-index: 2;
 }
 
 .movie-tile h4 {
-    float: right;
-    width: 210px;
     font-size: 14px;
     height: 34px;
     overflow: hidden;
@@ -61,15 +72,17 @@
     text-decoration: none;
 }
 
-.movie-tile .language {
-    height: 16px;
-    overflow: hidden;
-}
-
 .movie-tile .language,
 .movie-tile .meta-info {
     color: #999;
-    font-size: 14px;
+    font-size: 12px;
+}
+
+.movie-tile .language {
+    height: 16px;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .filters {
