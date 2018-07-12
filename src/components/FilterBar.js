@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+
 
 class FilterBar extends Component {
 
@@ -36,7 +38,19 @@ class FilterBar extends Component {
             </form>
         );
     }
-
 }
 
-export default FilterBar;
+const mapStateToProps = (state) => {
+    return {
+        showMovies: true
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setFilter: ()=>{}
+    }
+}
+
+
+export default connect()(FilterBar);

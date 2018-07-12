@@ -8,31 +8,33 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
 
 	switch(action.type) {
+
 		case MoviesActionConstants.MOVIES_FETCH_SUCCESS:
 			return {...state, moviesList: action.payload}
-		case MoviesActionConstants.ADD_FAVOURITE:
 
-			//Modify without mutating original state. original state getting modified this is causing problems. Bug seems to be from here.
+		case MoviesActionConstants.ADD_FAVOURITE:
 
 			const newList = [...state.moviesList];
 			// const newList = JSON.parse(JSON.stringify(state.moviesList));
 
-			// console.log(newList[action.payload]);
-			// console.log(newList[action.payload].hasOwnProperty('favourite'));
-			const temp = {...newList[action.payload]}
-			if(temp.hasOwnProperty('favourite')) {
-				temp.favourite = !temp.favourite;
+			const targetMovie = {...newList[action.payload]}
+			if(targetMovie.hasOwnProperty('favourite')) {
+				targetMovie.favourite = !targetMovie.favourite;
 			} else {
-				temp['favourite'] = true;
+				targetMovie['favourite'] = true;
 			}
 
-			newList[action.payload] = temp;
+			newList[action.payload] = targetMovie;
 
 			let returnedState = {...state, moviesList: newList};
 
 			console.log(returnedState);
 
 			return returnedState;
+
+		case MoviesActionConstants.SET_FILTER:
+
+			return state;
 
 		default:
 			return state; 
