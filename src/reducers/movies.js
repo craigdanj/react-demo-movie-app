@@ -2,11 +2,11 @@ import MoviesActionConstants from '../constants/MoviesActionConstants';
 
 const initialState = {
 	showFavourites: false,
-	moviesList: [],
-	movieDetails: {}
+	moviesList: []
 };
 
 const movies = (state = initialState, action) => {
+	console.log(action);
 
 	switch(action.type) {
 
@@ -37,7 +37,7 @@ const movies = (state = initialState, action) => {
 
 		case MoviesActionConstants.MOVIE_FETCHED:
 			const copiedState = {...state};
-			copiedState.movieDetails = {...action.payload[20]};
+			copiedState.movieDetails = {...action.payload.data[action.payload.id]};
 
 			return copiedState;
 

@@ -12,7 +12,7 @@ class MovieDetails extends Component {
     }
 
     componentWillMount() {
-        this.props.moviesActions.fetchMovie()
+        this.props.moviesActions.fetchMovie(this.props.match.params.id)
     }
 
     render() {

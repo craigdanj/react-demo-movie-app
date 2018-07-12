@@ -35,19 +35,20 @@ export const setFilter = (value) => ({
 
 
 //Fetch Single Movie
-export const fetchMovieSuccess = (value) => ({
+export const fetchMovieSuccess = (data, id) => ({
 	type: MoviesActionConstants.MOVIE_FETCHED,
-	payload: value
+	payload: {data, id}
 })
 
-export const fetchMovie = (value) => {
+export const fetchMovie = (id) => {
+	console.log(id)
 	//return a callback
 	return function(dispatch, getState) {
 		return (
 			MoviesApi.fetchMovies()
 			.then( 
 				(response) => {
-					dispatch(fetchMovieSuccess(response.data))
+					dispatch(fetchMovieSuccess(response.data, id))
 				}
 			)
 		)
