@@ -5,7 +5,7 @@ import * as moviesActions from '../actions/MoviesActionCreator';
 import star from '../assets/star.svg';
 import starOutline from '../assets/star-outline.svg';
 
-const MovieTile = (props) => {
+const MovieDetails = (props) => {
 
     const iconSource = props.movie.favourite ? star: starOutline;
 
@@ -45,4 +45,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 
-export default connect(null, mapDispatchToProps)(MovieTile);
+export default connect(null, mapDispatchToProps)(MovieDetails);

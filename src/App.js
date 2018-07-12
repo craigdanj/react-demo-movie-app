@@ -18,24 +18,12 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			showFavourites: false,
-			moviesList: []
-		}
-
-		// this.setFilter = this.setFilter.bind(this);
 	}
 
 	componentDidMount() {
 
 		this.props.moviesActions.fetchMovies();
 	}
-
-	// setFilter(value) {
-	// 	this.setState({
-	// 		showFavourites: value
-	// 	})
-	// }
 
     render() {
         return (
@@ -46,7 +34,7 @@ class App extends Component {
 	                	return (
 	                			<div>
 	                				<FilterBar/>
-	                				<Movies showFavourites={this.state.showFavourites} list={this.props.moviesList}/>
+	                				<Movies showFavourites={this.props.showFavourites} list={this.props.moviesList}/>
 	                			</div>
 	                		)
 	                }}/>
