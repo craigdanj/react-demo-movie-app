@@ -5,7 +5,7 @@ const Movies = (props) => {
 	let movieTileList = [];
 	let movieCount = 0;
 
-	if(props.showFavouriteList) {
+	if(props.showFavourites) {
 
 		movieTileList = props.list.map((val, index) => {
 			if(val.favourite) {

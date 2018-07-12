@@ -30,40 +30,7 @@ class App extends Component {
 	componentDidMount() {
 
 		this.props.moviesActions.fetchMovies();
-
-	// 	axios.get('http://www.mocky.io/v2/5b44a1b92f00006400583823')
-	// 		.then(response => {
-	// 			// handle success
-	// 			console.log(response);
-
-	// 			this.setMovieList(response.data);
-	// 		})
-	// 		.catch(error => {
-	// 			// handle error
-	// 			console.log(error);
-	// 		})
-	// 		.then(() => {
-	// 			// always executed
-	// 		});
-
 	}
-
-	// setMovieList(value) {
-
-	// 	this.setState({
-	// 		moviesList: value
-	// 	})
-	// }
-
-	// addFavourite(index) {
-	// 	const newList = [...this.state.moviesList];
-
-	// 	newList[index].favourite = !newList[index].favourite;
-
-	// 	this.setState({
-	// 		moviesList: newList
-	// 	})
-	// }
 
 	setFilter(value) {
 		this.setState({
@@ -80,7 +47,7 @@ class App extends Component {
 	                	return (
 	                			<div>
 	                				<FilterBar setFilter={this.setFilter}/>
-	                				<Movies showFavouriteList={this.state.showFavourites} showFavourites={this.state.showFavourites} list={this.props.moviesList}/>
+	                				<Movies showFavourites={this.state.showFavourites} list={this.props.moviesList}/>
 	                			</div>
 	                		)
 	                }}/>
