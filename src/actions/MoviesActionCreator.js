@@ -22,9 +22,9 @@ export const fetchMovies = () => {
 export const addFavourite = (index) => ({
 	type: MoviesActionConstants.ADD_FAVOURITE,
 	payload: index
-});
+})
 
 export const setFilter = (value) => ({
 	type: MoviesActionConstants.SET_FILTER,
 	payload: value
-});
+})

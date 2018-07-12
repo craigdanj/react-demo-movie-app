@@ -1,5 +1,6 @@
 import React from 'react';
 import MovieTile from './MovieTile'
+import {connect} from 'react-redux';
 
 const Movies = (props) => {
 	let movieTileList = [];
@@ -30,4 +31,11 @@ const Movies = (props) => {
 
 }
 
-export default Movies;
+const mapStateToProps = (state) => {
+	console.log(state)
+	return {
+		showFavourites: state.moviesReducer.showFavourites
+	}
+}
+
+export default connect(mapStateToProps)(Movies);

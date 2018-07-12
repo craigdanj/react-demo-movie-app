@@ -30,7 +30,9 @@ const movies = (state = initialState, action) => {
 			return returnedState;
 
 		case MoviesActionConstants.SET_FILTER:
-			return state;
+			const newState = {...state};
+			newState.showFavourites = action.payload;
+			return newState;
 
 		default:
 			return state; 

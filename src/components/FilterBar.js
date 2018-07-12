@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-
+import {bindActionCreators} from 'redux';
+import * as moviesActions from '../actions/MoviesActionCreator'
 
 class FilterBar extends Component {
 
@@ -8,7 +9,7 @@ class FilterBar extends Component {
 		super(props);
 
 		this.state = {
-			movies: true
+			showMovies: true
 		}
 
         this.selectFilter = this.selectFilter.bind(this);
@@ -16,41 +17,36 @@ class FilterBar extends Component {
 
     selectFilter(value) {
         this.setState({
-            movies: value
+            showMovies: value
         });
 
-        this.props.setFilter(!value);
+        this.props.moviesActions.setFilter(!value);
     }
 
     render() {
         return (
             <form className="filters">
                 <label>
-                    <input type="radio" value="true" checked={this.state.movies} onChange={() => this.selectFilter(true)}/>
+                    <input type="radio" value="true" checked={this.state.showMovies} onChange={() => this.selectFilter(true)}/>
                     Movies 
                 </label>
 
                 &nbsp;
 
                 <label>
-            	   <input type="radio" value="false" checked={!this.state.movies} onChange={() => this.selectFilter(false)}/> Favourites
+            	   <input type="radio" value="false" checked={!this.state.showMovies} onChange={() => this.selectFilter(false)}/> Favourites
                 </label>
             </form>
         );
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        showMovies: true
-    }
-}
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setFilter: (value)=>{}
+        moviesActions: bindActionCreators(moviesActions, dispatch)
     }
 }
 
 
-export default connect()(FilterBar);
+export default connect(null, mapDispatchToProps)(FilterBar);
