@@ -35,8 +35,14 @@ const movies = (state = initialState, action) => {
 			newState.showFavourites = action.payload;
 			return newState;
 
+		case MoviesActionConstants.FETCH_IN_PROGRESS:
+			const clonedState = {...state};
+			clonedState.loading = true;
+			return clonedState;
+
 		case MoviesActionConstants.MOVIE_FETCHED:
 			const copiedState = {...state};
+			copiedState.loading = false;
 			copiedState.movieDetails = {...action.payload.data[action.payload.id]};
 
 			return copiedState;

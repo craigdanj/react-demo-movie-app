@@ -1,6 +1,11 @@
 import * as MoviesApi from '../apis/MoviesApi';
 import MoviesActionConstants from '../constants/MoviesActionConstants';
 
+export const triggerLoading = (data, id) => ({
+	type: MoviesActionConstants.FETCH_IN_PROGRESS,
+	payload: {data, id}
+})
+
 //Fetch All Movies
 export const fetchMoviesSuccess = (movies) => ({
 	type: MoviesActionConstants.MOVIES_FETCH_SUCCESS,

@@ -5,6 +5,7 @@ import * as moviesActions from '../actions/MoviesActionCreator';
 import star from '../assets/star.svg';
 import starOutline from '../assets/star-outline.svg';
 
+
 class MovieDetails extends Component {
     constructor(props) {
         super(props);
@@ -26,67 +27,72 @@ class MovieDetails extends Component {
 
         return (
             <div className="movie-details">
+                {this.props.loading ?
+                    <p>Loading</p>
 
-                <div>
-                    <div className="sidebar">
-                        <img className="poster" src={this.props.movie.Poster}/>
+                    :
 
-                        <div className="rating-container">
+                    <div>
+                        <div className="sidebar">
+                            <img className="poster" src={this.props.movie.Poster}/>
 
-                            <h4>Ratings</h4>
+                            <div className="rating-container">
 
-                            <ul className="ratings">
-                                {ratings}
-                            </ul>
+                                <h4>Ratings</h4>
+
+                                <ul className="ratings">
+                                    {ratings}
+                                </ul>
+                            </div>
+
                         </div>
 
-                    </div>
+                        <div className="info">
+                            <h1>{this.props.movie.Title}</h1>
 
-                    <div className="info">
-                        <h1>{this.props.movie.Title}</h1>
-                        
-                        <h4>{this.props.movie.Year}</h4>
+                            <h4>{this.props.movie.Year}</h4>
 
-                        <h5>
-                            {this.props.movie.Writer}
-                        </h5>
+                            <h5>
+                                {this.props.movie.Writer}
+                            </h5>
 
-                        <div className="meta">
+                            <div className="meta">
+                                <p>
+                                    Rating: {this.props.movie.Rated}
+                                </p>
+
+                                <p>
+                                    Duration: {this.props.movie.Runtime}
+                                </p>
+
+                                <p>
+                                    Genre: {this.props.movie.Genre}
+                                </p>
+
+                                <p>
+                                    Languages: {this.props.movie.Language} 
+                                </p>
+
+                                <p>
+                                    Cast: {this.props.movie.Actors} 
+                                </p>
+                            </div>
+
+
                             <p>
-                                Rating: {this.props.movie.Rated}
+                                {this.props.movie.Plot} 
                             </p>
 
-                            <p>
-                                Duration: {this.props.movie.Runtime}
-                            </p>
-
-                            <p>
-                                Genre: {this.props.movie.Genre}
-                            </p>
-
-                            <p>
-                                Languages: {this.props.movie.Language} 
-                            </p>
-
-                            <p>
-                                Cast: {this.props.movie.Actors} 
-                            </p>
                         </div>
-
-
-                        <p>
-                            {this.props.movie.Plot} 
-                        </p>
-
                     </div>
-                </div>
 
+                    
 
+                }
                 
             </div>
         );
     }
-    
 }
 
 const mapStateToProps = (state) => {
