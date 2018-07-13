@@ -95,7 +95,6 @@ class MovieDetails extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         loading: state.moviesReducer.loading || false,
         movie: state.moviesReducer.movieDetails || {}

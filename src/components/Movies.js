@@ -2,7 +2,8 @@ import React from 'react';
 import MovieTile from './MovieTile'
 import {connect} from 'react-redux';
 
-const Movies = (props) => {
+export const Movies = (props) => {
+
 	let movieTileList = [];
 	let movieCount = 0;
 
@@ -16,10 +17,13 @@ const Movies = (props) => {
 		});
 
 	} else {
-		movieTileList = props.list.map((val, index) => {
-			movieCount += 1;
-			return <MovieTile key={val.imdbID} index={index} movie={val}/>
-		});
+
+		if(props.list) {
+			movieTileList = props.list.map((val, index) => {
+				movieCount += 1;
+				return <MovieTile key={val.imdbID} index={index} movie={val}/>
+			});
+		}
 	}
 
 	return (
