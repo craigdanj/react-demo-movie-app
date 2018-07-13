@@ -14,7 +14,6 @@ const MovieTile = (props) => {
         <div className="movie-tile">
             <div className="overlay"></div>
             <img className="poster" src={props.movie.Poster}/>
-            
 
             <h4>
                 <Link to={`/details/${props.index}`}>
@@ -25,7 +24,7 @@ const MovieTile = (props) => {
             <img className="fav-button" onClick={() => props.moviesActions.addFavourite(props.index)} src={iconSource}/>
 
             <p className="language">
-                {props.movie.Language} 
+                {props.movie.Language}
             </p>
             <p className="meta-info">
                 <span>

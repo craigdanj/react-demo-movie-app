@@ -77,6 +77,14 @@ class MovieDetails extends Component {
                                 <p>
                                     Cast: {this.props.movie.Actors} 
                                 </p>
+
+                                { this.props.movie.BoxOffice != "N/A" ?
+                                    <p>
+                                        Box Office: {this.props.movie.BoxOffice}
+                                    </p>
+                                    :
+                                    null
+                                }
                             </div>
 
 
