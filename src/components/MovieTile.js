@@ -9,11 +9,11 @@ import {Link} from 'react-router-dom';
 const MovieTile = (props) => {
 
     const iconSource = props.movie.favourite ? star: starOutline;
-            // <img className="poster" src={props.movie.Poster}/>
 
     return (
         <div className="movie-tile">
             <div className="overlay"></div>
+            <img className="poster" src={props.movie.Poster}/>
             
 
             <h4>
