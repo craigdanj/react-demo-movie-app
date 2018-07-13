@@ -6,10 +6,8 @@ import star from '../assets/star.svg';
 import starOutline from '../assets/star-outline.svg';
 
 
-class MovieDetails extends Component {
-    constructor(props) {
-        super(props);
-    }
+export class MovieDetails extends Component {
+  
 
     componentWillMount() {
         this.props.moviesActions.triggerLoading();
@@ -79,9 +77,7 @@ class MovieDetails extends Component {
                                 </p>
 
                                 { this.props.movie.BoxOffice != "N/A" ?
-                                    <p>
-                                        Box Office: {this.props.movie.BoxOffice}
-                                    </p>
+                                    <p className="box-office">Box Office: {this.props.movie.BoxOffice}</p>
                                     :
                                     null
                                 }
