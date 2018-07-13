@@ -1,11 +1,11 @@
 import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-configure({adapter: new Adapter});
-
 import React from 'react';
 import {Movies} from './Movies';
 import MovieTile from './MovieTile';
+
+configure({adapter: new Adapter});
 
 describe('<Movies/>', () => {
 	let wrapper = null;
