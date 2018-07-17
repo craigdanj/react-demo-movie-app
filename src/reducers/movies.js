@@ -57,16 +57,13 @@ const movies = (state: State = initialState, action: Action) => {
 			return tempState.toJS();
 
 		case MoviesActionConstants.FETCH_IN_PROGRESS:
-			const clonedState = {...state};
-			clonedState.loading = true;
-			return clonedState;
+			tempState = tempState.set('loading', action.payload)
+			return tempState.toJS();
 
 		case MoviesActionConstants.MOVIE_FETCHED:
-			const copiedState = {...state};
-			copiedState.loading = false;
-			copiedState.movieDetails = {...action.payload.data[action.payload.id]};
-
-			return copiedState;
+			tempState = tempState.set('loading', false)
+			tempState = tempState.set('movieDetails', action.payload.data[action.payload.id])
+			return tempState.toJS();
 
 		default:
 			return state;
