@@ -1,3 +1,7 @@
+`A project to demonstrate how ReactJS, Redux, React Router, Immutable JS and Flow can play nicely with each other.`
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
