@@ -1,6 +1,7 @@
 //@flow
 
 import MoviesActionConstants from '../constants/MoviesActionConstants';
+import { fromJS } from 'immutable';
 
 type State = {
 	+showFavourites: boolean,
@@ -24,6 +25,11 @@ const initialState: State = {
 const movies = (state: State = initialState, action: Action) => {
 	// console.log(action);
 
+	let tempState = fromJS(state)
+
+	console.log(tempState.toJS());
+	console.log(tempState.get('moviesList'));
+
 	switch(action.type) {
 
 		case MoviesActionConstants.MOVIES_FETCH_SUCCESS:
@@ -32,20 +38,19 @@ const movies = (state: State = initialState, action: Action) => {
 
 		case MoviesActionConstants.ADD_FAVOURITE:
 
-			const newList = [...state.moviesList];
-			// const newList = JSON.parse(JSON.stringify(state.moviesList));
+			var movieList = tempState.get('moviesList');
+			var targetMovie = movieList.get(action.payload)
 
-			const targetMovie = {...newList[action.payload]}
-			if(targetMovie.hasOwnProperty('favourite')) {
-				targetMovie.favourite = !targetMovie.favourite;
+			if(targetMovie.has('favourite')) {
+				targetMovie = targetMovie.set('favourite', !targetMovie.get('favourite'));
 			} else {
-				targetMovie['favourite'] = true;
+				targetMovie = targetMovie.set('favourite', true);
 			}
 
-			newList[action.payload] = targetMovie;
-			let returnedState = {...state, moviesList: newList};
+			movieList = movieList.set(action.payload, targetMovie);
+			tempState = tempState.set('moviesList', movieList);
 
-			return returnedState;
+			return tempState.toJS();
 
 		case MoviesActionConstants.SET_FILTER:
 			const newState = {...state};
