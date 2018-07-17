@@ -145,10 +145,15 @@ body {
 
 .event-list li {
     border-bottom: 1px solid #CCC;
+    padding: 15px 0;
+}
+
+.event-list li p {
+    margin: 0;
+    line-height: 1.5em;
 }
 
 .event-list li .date {
     color: #AAA;
-    line-height: 1em;
 }
 

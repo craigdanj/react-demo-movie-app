@@ -1,11 +1,27 @@
+//@flow
+
 import MoviesActionConstants from '../constants/MoviesActionConstants';
 
-const initialState = {
+type State = {
+	+showFavourites: boolean,
+	+moviesList: Array<mixed>,
+	+loading: boolean,
+	+movieDetails: {}
+}
+
+type Action = {
+	type: string,
+	payload: any
+}
+
+const initialState: State = {
 	showFavourites: false,
-	moviesList: []
+	moviesList: [],
+	loading: false,
+	movieDetails: {}
 };
 
-const movies = (state = initialState, action) => {
+const movies = (state: State = initialState, action: Action) => {
 	// console.log(action);
 
 	switch(action.type) {
