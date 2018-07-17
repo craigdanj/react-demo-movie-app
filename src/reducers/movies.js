@@ -53,9 +53,8 @@ const movies = (state: State = initialState, action: Action) => {
 			return tempState.toJS();
 
 		case MoviesActionConstants.SET_FILTER:
-			const newState = {...state};
-			newState.showFavourites = action.payload;
-			return newState;
+			tempState = tempState.set('showFavourites', action.payload)
+			return tempState.toJS();
 
 		case MoviesActionConstants.FETCH_IN_PROGRESS:
 			const clonedState = {...state};
@@ -70,7 +69,7 @@ const movies = (state: State = initialState, action: Action) => {
 			return copiedState;
 
 		default:
-			return state; 
+			return state;
 	}
 };
 
