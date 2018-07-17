@@ -3,6 +3,7 @@
 import MoviesActionConstants from '../constants/MoviesActionConstants';
 import { fromJS } from 'immutable';
 
+//Flow type for state
 type State = {
 	+showFavourites: boolean,
 	+moviesList: Array<mixed>,
@@ -10,6 +11,7 @@ type State = {
 	+movieDetails: {}
 }
 
+//Flow type for action
 type Action = {
 	type: string,
 	payload: any
@@ -33,8 +35,8 @@ const movies = (state: State = initialState, action: Action) => {
 	switch(action.type) {
 
 		case MoviesActionConstants.MOVIES_FETCH_SUCCESS:
-			// return {...state, moviesList: action.payload}
-			return {...state, moviesList: action.payload.slice(11,action.payload.length)}
+			tempState = tempState.set('moviesList', action.payload)
+			return tempState.toJS();
 
 		case MoviesActionConstants.ADD_FAVOURITE:
 
