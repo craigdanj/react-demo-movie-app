@@ -1,4 +1,11 @@
-`A project to demonstrate how ReactJS, Redux, React Router, Immutable JS and Flow can play nicely with each other.`
+A project to demonstrate how the following libraries work together:
+#ReactJS
+#Redux
+#React Router
+#Immutable JS
+#Flow
+#Jest
+#Enzyme
 
 
 
